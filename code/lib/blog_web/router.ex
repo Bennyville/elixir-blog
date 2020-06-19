@@ -19,6 +19,7 @@ defmodule BlogWeb.Router do
     resources "/register", UserController, only: [:create, :new]
     get "/login", SessionController, :new
     post "/login", SessionController, :create
+    resources "/posts", PostController
   end
 
   scope "/", BlogWeb do
