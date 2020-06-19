@@ -34,6 +34,7 @@ defmodule BlogWeb.Router do
   end
 
   scope "/admin", BlogWeb, as: :admin do
+    pipe_through [:browser, BlogWeb.Plugs.Auth]
     resources "/posts", PostController do
       resources "/comments", CommentController
     end
