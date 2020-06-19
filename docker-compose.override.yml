@@ -5,3 +5,6 @@ services:
         volumes:
             - ./code:/app
 
+    database:
+        ports:
+            - "5432:5432"

@@ -39,6 +39,8 @@ defmodule BlogWeb do
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
+
+      import Blog.Accounts.Auth, only: [signed_in?: 1]
     end
   end
 

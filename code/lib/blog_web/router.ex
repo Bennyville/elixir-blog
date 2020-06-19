@@ -14,7 +14,17 @@ defmodule BlogWeb.Router do
   end
 
   scope "/", BlogWeb do
-    pipe_through :browser
+    pipe_through [:browser, BlogWeb.Plugs.Guest]
+
+    resources "/register", UserController, only: [:create, :new]
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+  end
+
+  scope "/", BlogWeb do
+    pipe_through [:browser, BlogWeb.Plugs.Auth]
+
+    delete "/logout", SessionController, :delete
 
     get "/", PageController, :index
   end
