@@ -19,7 +19,9 @@ defmodule BlogWeb.Router do
     resources "/register", UserController, only: [:create, :new]
     get "/login", SessionController, :new
     post "/login", SessionController, :create
-    resources "/posts", PostController
+    resources "/posts", PostController, only: [:index, :show] do
+      resources "/comments", CommentController, only: [:create]
+    end
   end
 
   scope "/", BlogWeb do
@@ -28,6 +30,12 @@ defmodule BlogWeb.Router do
     delete "/logout", SessionController, :delete
 
     get "/", PageController, :index
+  end
+
+  scope "/admin", BlogWeb, as: :admin do
+    resources "/posts", PostController do
+      resources "/comments", CommentController
+    end
   end
 
   # Other scopes may use custom stacks.
