@@ -12,6 +12,8 @@ defmodule Blog.Accounts.User do
     field :password_confirmation, :string, virtual: true
 
     timestamps()
+
+    has_many :posts, Blog.Posts.Post
   end
 
   @doc false

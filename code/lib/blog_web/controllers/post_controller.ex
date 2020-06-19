@@ -15,13 +15,18 @@ defmodule BlogWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
-    case Posts.create_post(post_params) do
+    changeset =
+      conn.assigns[:current_user]
+      |> Ecto.build_assoc(:posts)
+      |> Post.changeset(post_params)
+
+    case Blog.Repo.insert(changeset) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: Routes.post_path(conn, :show, post))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
+      {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
