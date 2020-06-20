@@ -3,13 +3,13 @@ defmodule Blog.Posts.Post do
   import Ecto.Changeset
 
   schema "posts" do
-    has_many :comments, Blog.Posts.Comment
-
     field :text, :string
     field :title, :string
     field :user_id, :integer
 
     timestamps()
+
+    has_many :comments, Blog.Posts.Comment
   end
 
   @doc false

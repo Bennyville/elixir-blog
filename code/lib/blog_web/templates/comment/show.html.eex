@@ -3,11 +3,6 @@
 <ul>
 
   <li>
-    <strong>Post:</strong>
-    <%= @comment.post_id %>
-  </li>
-
-  <li>
     <strong>Author:</strong>
     <%= @comment.author %>
   </li>

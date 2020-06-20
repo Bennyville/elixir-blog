@@ -4,8 +4,8 @@ defmodule Blog.Posts.Comment do
 
   schema "comments" do
     field :author, :string
-    field :post_id, :integer
     field :text, :string
+    field :post_id, :id
 
     timestamps()
   end
@@ -13,7 +13,7 @@ defmodule Blog.Posts.Comment do
   @doc false
   def changeset(comment, attrs) do
     comment
-    |> cast(attrs, [:post_id, :author, :text])
-    |> validate_required([:post_id, :author, :text])
+    |> cast(attrs, [:author, :text])
+    |> validate_required([:author, :text])
   end
 end

@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Post</th>
       <th>Author</th>
       <th>Text</th>
 
@@ -13,7 +12,6 @@
   <tbody>
 <%= for comment <- @comments do %>
     <tr>
-      <td><%= comment.post_id %></td>
       <td><%= comment.author %></td>
       <td><%= comment.text %></td>
 

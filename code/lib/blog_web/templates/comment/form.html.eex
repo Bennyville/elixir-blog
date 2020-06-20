@@ -5,10 +5,6 @@
     </div>
   <% end %>
 
-  <%= label f, :post_id %>
-  <%= number_input f, :post_id %>
-  <%= error_tag f, :post_id %>
-
   <%= label f, :author %>
   <%= text_input f, :author %>
   <%= error_tag f, :author %>

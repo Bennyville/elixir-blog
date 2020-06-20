@@ -3,12 +3,13 @@ defmodule Blog.Repo.Migrations.CreateComments do
 
   def change do
     create table(:comments) do
-      add :post_id, :integer
       add :author, :string
       add :text, :text
+      add :post_id, references(:posts, on_delete: :nothing)
 
       timestamps()
     end
 
+    create index(:comments, [:post_id])
   end
 end

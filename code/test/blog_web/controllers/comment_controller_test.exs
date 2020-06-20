@@ -3,9 +3,9 @@ defmodule BlogWeb.CommentControllerTest do
 
   alias Blog.Posts
 
-  @create_attrs %{author: "some author", post_id: 42, text: "some text"}
-  @update_attrs %{author: "some updated author", post_id: 43, text: "some updated text"}
-  @invalid_attrs %{author: nil, post_id: nil, text: nil}
+  @create_attrs %{author: "some author", text: "some text"}
+  @update_attrs %{author: "some updated author", text: "some updated text"}
+  @invalid_attrs %{author: nil, text: nil}
 
   def fixture(:comment) do
     {:ok, comment} = Posts.create_comment(@create_attrs)
