@@ -33,7 +33,10 @@ defmodule BlogWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Posts.get_post!(id)
-    render(conn, "show.html", post: post)
+    comment_changeset = post
+                        |> Ecto.build_assoc(:comments)
+                        |> Blog.Posts.Comment.changeset()
+    render(conn, "show.html", post: post, comment_changeset: comment_changeset)
   end
 
   def edit(conn, %{"id" => id}) do

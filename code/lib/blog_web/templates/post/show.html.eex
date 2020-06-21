@@ -19,5 +19,8 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span>
+<span><%= link "Edit", to: Routes.admin_post_path(@conn, :edit, @post) %></span>
 <span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>
+
+<%= render BlogWeb.CommentView, "form.html", Map.merge(assigns, %{action: Routes.post_comment_path(@conn, :create, @post), changeset: @comment_changeset}) %>
+
