@@ -1,1 +1,1 @@
-# elixier-blog
+# elixir-blog
