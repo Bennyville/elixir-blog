@@ -2,9 +2,20 @@ version: "3.7"
 
 services:
     phoenix:
+        environment:
+            PGUSER: local
+            PGPASSWORD: local
+            PGDATABASE: blog
+            PGPORT: 5432
+            PGHOST: database
         volumes:
             - ./code:/app
+        ports:
+            - "4000:4000"
 
     database:
+        environment:
+            POSTGRES_USER: local
+            POSTGRES_PASSWORD: local
         ports:
             - "5432:5432"

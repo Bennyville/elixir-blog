@@ -5,22 +5,12 @@ services:
         build:
             context: .
             dockerfile: ./phoenix/Dockerfile
-        environment:
-            PGUSER: local
-            PGPASSWORD: local
-            PGDATABASE: blog
-            PGPORT: 5432
-            PGHOST: database
-        ports:
-            - "4000:4000"
         depends_on:
             - database
 
     database:
         image: postgres:9.6
         environment:
-            POSTGRES_USER: local
-            POSTGRES_PASSWORD: local
             PGDATA: /var/lib/postgresql/data/pgdata
         restart: always
         volumes:
