@@ -4,7 +4,7 @@ services:
     phoenix:
         build:
             context: .
-            dockerfile: ./phoenix/Dockerfile
+            dockerfile: ./docker/phoenix/Dockerfile
         depends_on:
             - database
 

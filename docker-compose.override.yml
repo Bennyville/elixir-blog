@@ -9,7 +9,7 @@ services:
             PGPORT: 5432
             PGHOST: database
         volumes:
-            - ./code:/app
+            - ./src:/app
         ports:
             - "4000:4000"
 
