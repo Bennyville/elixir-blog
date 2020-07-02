@@ -5,11 +5,11 @@ defmodule Blog.Posts.Post do
   schema "posts" do
     field :text, :string
     field :title, :string
-    field :user_id, :integer
 
     timestamps()
 
     has_many :comments, Blog.Posts.Comment
+    belongs_to :user, Blog.Accounts.User
   end
 
   @doc false
