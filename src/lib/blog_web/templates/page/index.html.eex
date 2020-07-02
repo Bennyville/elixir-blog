@@ -1,1 +1,12 @@
-
+<ul>
+<%= for post <- @posts do %>
+  <li>
+    <%= link to: Routes.post_path(@conn, :show, post) do %>
+      <h2>
+        <%= post.title %>
+        <%= post.user.username %>
+      </h2>
+    <% end %>
+  </li>
+<% end %>
+</ul>
