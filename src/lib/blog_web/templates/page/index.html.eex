@@ -1,12 +1,12 @@
 <ul>
-<%= for post <- @posts do %>
-  <li>
-    <%= link to: Routes.post_path(@conn, :show, post) do %>
+  <%= for post <- @posts do %>
+    <li>
+      <%= content_tag(:time, "#{post.inserted_at.day}.#{post.inserted_at.month}.#{post.inserted_at.year}", datetime: post.inserted_at) %>
       <h2>
-        <%= post.title %>
-        <%= post.user.username %>
+        <%= link to: Routes.post_path(@conn, :show, post) do %>
+          <%= post.title %>
+        <% end %>
       </h2>
-    <% end %>
-  </li>
-<% end %>
+    </li>
+  <% end %>
 </ul>
