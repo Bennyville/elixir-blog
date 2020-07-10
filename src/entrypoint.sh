@@ -1,6 +1,8 @@
 #!/bin/bash
 # Docker entrypoint script.
 
+mix deps.get
+
 # Wait until Postgres is ready
 while ! pg_isready -q -h $PGHOST -p $PGPORT -U $PGUSER
 do

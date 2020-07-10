@@ -10,7 +10,7 @@ WORKDIR /app
 RUN mix local.hex --force && \
 	mix local.rebar --force
 
-RUN mix do compile
+RUN mix archive.install --force hex phx_new
 
 CMD ["/app/entrypoint.sh"]
 
